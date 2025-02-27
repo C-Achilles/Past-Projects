@@ -1,0 +1,56 @@
+num1 = input("Enter number 1 ")
+num2 = input("Enter number 2 ")
+
+def split(word):
+    return list(word)
+     
+# Driver code
+num1 = split(num1)
+num2 = split(num2)
+
+numberOutput = ["0", "0", "0", "0", "0", "0", "0", "0"]
+x = 7
+carry = "0"
+for i in range(8):
+    if num1[x] == "1" and num2[x] == "1" and carry == "0":
+        numberOutput[x] = "0"
+        carry = "1"
+        x-=1
+    elif num1[x] == "1" and num2[x] == "0" and carry == "0":
+        numberOutput[x] = "1"
+        carry = "0"
+        x-=1
+    elif num1[x] == "0" and num2[x] == "1" and carry == "0":
+        numberOutput[x] = "1"
+        carry = "0"
+        x-=1
+    elif num1[x] == "0" and num2[x] == "0" and carry == "0":
+        numberOutput[x] = "0"
+        carry = "0"
+        x-=1
+    
+    elif num1[x] == "1" and num2[x] == "1" and carry == "1":
+        numberOutput[x] = "1"
+        carry = "1"
+        x-=1
+    elif num1[x] == "1" and num2[x] == "0" and carry == "1":
+        numberOutput[x] = "0"
+        carry = "1"
+        x-=1
+    elif num1[x] == "0" and num2[x] == "1" and carry == "1":
+        numberOutput[x] = "0"
+        carry = "1"
+        x-=1
+    elif num1[x] == "0" and num2[x] == "0" and carry == "1":
+        numberOutput[x] = "1"
+        carry = "0"
+        x-=1
+        
+if (numberOutput[0] == "0" or numberOutput[0] == "1") and carry == "1":
+    extendedNuOutput = [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    for i in range(1, 9):
+        extendedNuOutput[i] = numberOutput[i-1]
+    print(extendedNuOutput)
+else:
+    print(numberOutput)
+        
