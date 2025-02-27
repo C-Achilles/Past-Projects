@@ -1,0 +1,16 @@
+n1 = 300000000000002241427
+n2 = 300000000100000000000
+for i in range(n1, n2):
+    x = True
+    l = i
+    while x == True:
+        #print(l)
+        if l % 2 == 0:
+            l = l/2
+        else:
+            l = (l*3)+1
+        
+        if l == 1:
+            #print("1.0")
+            x = False
+            print(i)
