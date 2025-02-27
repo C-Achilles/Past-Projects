@@ -1,0 +1,35 @@
+import random
+
+white = int(input("How many white beads? "))
+black = int(input("How many black beads? "))
+total = black + white
+
+randomBead = ["black", "white"]
+
+def chooseBead():
+    return randomBead[random.randint(0,1)], randomBead[random.randint(0,1)]
+
+while total > 1:
+    a, b = chooseBead()
+    #print (a, b)
+    if a == "black":
+        black -= 1
+    elif a == "white":
+        white -= 1
+    if b == "black":
+        black -= 1
+    elif b == "white":
+        white -= 1
+
+    if a == b:
+        black += 1
+    else:
+        white += 1
+    total -= 1
+    
+    #print("White beads left: ", white)
+    #print("Black beads left: ", black)
+if white:
+    print("White wins")
+else:
+    print("Black wins")
